@@ -6,11 +6,6 @@ sudo apt-get install -y awesome git
 
 # remove files not needed
 
- 
-# link files to correct folders. 
-ln -s ~/simpleBarPC/.xinitrc ~/.xinitrc
-ln -s ~/simpleBarPC/.config/awesome ~/.config/awesome
-
 # install sound
 
 # install spotify
@@ -27,5 +22,8 @@ sudo apt-get install -y spotify-client
 	## spotify	
 	## firefox
 
+# link files to correct folders. 
+ln -s ~/simpleBarPC/.xinitrc ~/.xinitrc
+ln -s ~/simpleBarPC/.config/awesome ~/.config/awesome
 #
 echo "Now you should reboot, and enjoy"
