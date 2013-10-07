@@ -27,3 +27,5 @@ ln -s ~/simpleBarPC/.xinitrc ~/.xinitrc
 ln -s ~/simpleBarPC/.config/awesome ~/.config/awesome
 #
 echo "Now you should reboot, and enjoy"
+sudo adduser kiro audio
+sudo adduser kiro audio
