@@ -1,31 +1,35 @@
+# creating folders
+mkdir ~/.config
 
 # install dependencies
-sudo apt-get install -y awesome git
-
-# get files needed
-
-# remove files not needed
-
-# install sound
+sudo apt-get install -y xorg awesome git alsa-utils firefox
 
 # install spotify
+sudo chmod 777 /etc/apt/sources.list
 sudo echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list
+sudo chmod 644 /etc/apt/sources.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59
 sudo apt-get update
 sudo apt-get install -y spotify-client
 
-# install firefox / or something like that. 
-
 # set desktop background
+# todo: create desktop background with useful info. 
+
+# Configure sound
+sudo adduser kiro audio
+
+# Configure Awesome and xorg  
+rm ~/.xinitrc
+ln -s ~/simpleBarPC/.xinitrc ~/.xinitrc
+rm ~/.config/awesome
+ln -s ~/simpleBarPC/.config/awesome ~/.config/awesome
 
 # create launchers for 
-	## spotify	
-	## firefox
+	# spotify	
+	# firefox
 
-# link files to correct folders. 
-ln -s ~/simpleBarPC/.xinitrc ~/.xinitrc
-ln -s ~/simpleBarPC/.config/awesome ~/.config/awesome
+# configure auto start of x and awesome
+echo "startx" >> ~/.bashrc
+
 #
 echo "Now you should reboot, and enjoy"
-sudo adduser kiro audio
-sudo adduser kiro audio
