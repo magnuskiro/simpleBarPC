@@ -3,9 +3,12 @@ simpleBarPC
 
 Minimum setup of a pc running web browser and spotify.
 
-## Install 
+Based on ubuntu server and awesome. 
 
-wget https://raw.github.com/magnuskiro/impleBarPC/master/setup.sh && chmod 755 setup.sh && ./setup.sh
+## Install 
+* Do a clean install of ubuntu server.
+* Then execute: 
+  * wget https://raw.github.com/magnuskiro/impleBarPC/master/setup.sh && chmod 755 setup.sh && ./setup.sh
 
 ## Getting a shell running properly 
 You have to kill awesome to get to a functioning terminal. 
