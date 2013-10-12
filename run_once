@@ -1,8 +1,10 @@
 #!/bin/bash
-#Alternative
-pgrep $@ > /dev/null || ($@ &)
 
-# TODO
-# if not pid of nm-applet
-	# start nm-applet./program.  
-
+# while true == run always.
+while true; do
+	# if the process doesn't run start it. 
+	# pid of process is greater then nothing or run program.
+	pgrep $@ > /dev/null || ($@ &)
+	# sleep some to not strain the system 
+	sleep 2
+done
