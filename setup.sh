@@ -24,12 +24,10 @@ ln -s ~/simpleBarPC/.xinitrc ~/.xinitrc
 rm ~/.config/awesome
 ln -s ~/simpleBarPC/.config/awesome ~/.config/awesome
 
-# create launchers for 
-	# spotify	
-	# firefox
-
 # configure auto start of x and awesome
 echo "startx" >> ~/.bashrc
 
-#
+# Cleaning up 
+rm ~/setup.sh
 echo "Now you should reboot, and enjoy"
+

@@ -434,3 +434,4 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- run_once makes sure that spotify and firefox always runs. 
 os.execute("~/simpleBarPC/run_once spotify &")
 os.execute("~/simpleBarPC/run_once firefox &")
+os.execute("~/simpleBarPC/run_once startx &")
