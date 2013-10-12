@@ -2,7 +2,7 @@
 mkdir ~/.config
 
 # install dependencies
-sudo apt-get install -y xorg awesome git alsa-utils firefox
+sudo apt-get install -y xorg awesome awesome-extra git alsa-utils firefox
 
 # install spotify
 sudo chmod 777 /etc/apt/sources.list

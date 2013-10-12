@@ -10,8 +10,9 @@ require("naughty")
 -- Load Debian menu entries
 require("debian.menu")
 
--- Volume widget. 
-require("volume")
+-- User libraries
+vicious = require("vicious")
+-- -- }}}
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -40,7 +41,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 -- terminal = "x-terminal-emulator"
@@ -92,12 +93,42 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
                                      menu = mymainmenu })
 -- }}}
 
+separator = widget({ type = "textbox" })
+separator.text  = " :: "
+
+vollabel = widget({ type = "textbox" })
+vollabel.text  = " Volume: "
+
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
+
+-- {{{ Volume level
+volicon = widget({ type = "imagebox" })
+volicon.image = image(beautiful.widget_vol)
+-- Initialize widgets
+volbar    = awful.widget.progressbar()
+volwidget = widget({ type = "textbox" })
+-- Progressbar properties
+volbar:set_vertical(true):set_ticks(true)
+volbar:set_height(12):set_width(8):set_ticks_size(2)
+volbar:set_background_color(beautiful.fg_off_widget)
+volbar:set_gradient_colors({ beautiful.fg_widget,
+   beautiful.fg_center_widget, beautiful.fg_end_widget
+}) -- Enable caching
+vicious.cache(vicious.widgets.volume)
+-- Register widgets
+vicious.register(volbar,    vicious.widgets.volume,  "$1",  2, "Master -c 0") -- register the right sound card
+--vicious.register(volwidget, vicious.widgets.volume, "$1%", 2, "Master -c 0") -- run alsamixer and see which. 
+vicious.register(volwidget, vicious.widgets.volume,
+    function(widget, args)
+      local label = { ["♫"] = "O", ["♩"] = "M" } -- mute label.
+      return args[1] .. "%" .. label[args[2]] -- args[1] is the vol level, args[2] is the mute state(1=mute)
+	end, 2, "Master -c 0") -- set the correct sound device. 
+-- }}}
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -175,6 +206,7 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+		separator, volwidget, vollabel, separator, 
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
@@ -208,6 +240,14 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
+	-- Audio keys. 
+	awful.key({ "Control" }, "Up", function ()
+        awful.util.spawn("amixer -c 0 sset Master 9%+") end),
+    awful.key({ "Control"  }, "Down", function ()
+        awful.util.spawn("amixer -c 0 sset Master 9%-") end),
+    awful.key({ "Control" }, "space", function ()
+        awful.util.spawn("amixer -c 0 sset Master toggle") end),
+
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
@@ -238,7 +278,7 @@ globalkeys = awful.util.table.join(
             if client.focus then
                 client.focus:raise()
             end
-        end)
+        end),
 -- end alt + tab functionality.
 
     -- Standard program
