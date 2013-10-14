@@ -25,7 +25,8 @@ rm ~/.config/awesome
 ln -s ~/simpleBarPC/.config/awesome ~/.config/awesome
 
 # configure auto start of x and awesome
-echo "startx" >> ~/.bashrc
+#echo "startx" >> ~/.bashrc
+echo "~/simpleBarPC/run_once awesome &" >> .bashrc
 
 # Cleaning up 
 rm ~/setup.sh
