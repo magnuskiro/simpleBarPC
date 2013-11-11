@@ -2,6 +2,7 @@
 mkdir ~/.config
 
 # install dependencies
+# TODO move install after spotify configuration.
 sudo apt-get install -y xorg awesome awesome-extra git alsa-utils firefox
 
 # install spotify
