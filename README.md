@@ -16,3 +16,8 @@ You have to kill awesome to get to a functioning terminal.
 * super + r
 * killall awesome
 
+## Sound control
+* ctrl + up = increase volume
+* ctrl + down = decrease volume
+* ctrl + space = mute
+
