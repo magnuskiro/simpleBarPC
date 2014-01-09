@@ -283,8 +283,7 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Shift" }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
+    awful.key({ modkey, "Cotnrol" }, "r", awesome.restart),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
@@ -434,4 +433,3 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- run_once makes sure that spotify and firefox always runs. 
 os.execute("~/simpleBarPC/run_once spotify &")
 os.execute("~/simpleBarPC/run_once firefox &")
-os.execute("~/simpleBarPC/run_once startx &")

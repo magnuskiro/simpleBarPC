@@ -3,7 +3,8 @@ mkdir ~/.config
 
 # install dependencies
 # TODO move install after spotify configuration.
-sudo apt-get install -y xorg awesome awesome-extra git alsa-utils firefox
+sudo apt-get install -y xorg awesome awesome-extra git alsa-utils firefox \
+ubuntu-restrcted-extras
 
 # install spotify
 sudo chmod 777 /etc/apt/sources.list
@@ -26,8 +27,11 @@ rm ~/.config/awesome
 ln -s ~/simpleBarPC/.config/awesome ~/.config/awesome
 
 # configure auto start of x and awesome
-#echo "startx" >> ~/.bashrc
-echo "~/simpleBarPC/run_once awesome &" >> .bashrc
+echo '
+if [ $(pidof awesome|wc -w) -eq 0 ]; then
+	xinit
+fi
+' >> ~/.bashrc
 
 # Cleaning up 
 rm ~/setup.sh
