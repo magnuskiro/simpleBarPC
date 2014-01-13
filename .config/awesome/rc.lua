@@ -121,7 +121,8 @@ volbar:set_gradient_colors({ beautiful.fg_widget,
 }) -- Enable caching
 vicious.cache(vicious.widgets.volume)
 -- Register widgets
-vicious.register(volbar,    vicious.widgets.volume,  "$1",  2, "Master -c 0") -- register the right sound card
+vicious.register(volbar,    vicious.widgets.volume,  "$1",  2, "PCM -c 1") -- register the right sound card
+--vicious.register(volbar,    vicious.widgets.volume,  "$1",  2, "Master -c 0") -- register the right sound card
 --vicious.register(volwidget, vicious.widgets.volume, "$1%", 2, "Master -c 0") -- run alsamixer and see which. 
 vicious.register(volwidget, vicious.widgets.volume,
     function(widget, args)

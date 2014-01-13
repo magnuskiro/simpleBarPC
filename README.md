@@ -21,3 +21,14 @@ You have to kill awesome to get to a functioning terminal.
 * ctrl + down = decrease volume
 * ctrl + space = mute
 
+# sound config
+create a file called .asoundrc in the home folder. 
+then ad: 
+
+
+ defaults.ctl.card 1
+ defaults.pcm.card 1
+ defaults.timer.card 1
+
+the number matches the sound card in /proc/asound/cards
+
