@@ -18,6 +18,9 @@ ubuntu-restricted-extras spotify-client
 # Configure sound
 sudo adduser `whoami` audio
 
+# Getting config files
+git clone https://github.com/magnuskiro/simpleBarPC.git
+
 # Configure Awesome and xorg  
 rm ~/.xinitrc
 ln -s ~/simpleBarPC/.xinitrc ~/.xinitrc
