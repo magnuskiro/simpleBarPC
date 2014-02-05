@@ -10,7 +10,7 @@ sudo apt-get update
 
 # install dependencies
 sudo apt-get install -y xorg awesome awesome-extra git alsa-utils firefox \
-ubuntu-restrcted-extras spotify-client
+ubuntu-restricted-extras spotify-client
 
 # set desktop background
 # todo: create desktop background with useful info. 
