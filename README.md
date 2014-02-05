@@ -8,7 +8,7 @@ Based on ubuntu server and awesome.
 ## Install 
 * Do a clean install of ubuntu server.
 * Then execute: 
-  * wget https://github.com/magnuskiro/simpleBarPC/raw/master/setup.sh && chmod 755 setup.sh && ./setup.sh
+  * wget https://raw.github.com/magnuskiro/simpleBarPC/master/setup.sh && chmod 755 setup.sh && ./setup.sh
 
 ## Getting a shell running properly 
 You have to kill awesome to get to a functioning terminal. 
