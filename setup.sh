@@ -18,7 +18,8 @@ sudo apt-get install -y spotify-client
 # todo: create desktop background with useful info. 
 
 # Configure sound
-sudo adduser kiro audio
+# todo get the current user
+sudo adduser <current user> audio
 
 # Configure Awesome and xorg  
 rm ~/.xinitrc
