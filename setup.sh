@@ -1,18 +1,16 @@
 # creating folders
 mkdir ~/.config
 
-# install dependencies
-# TODO move install after spotify configuration.
-sudo apt-get install -y xorg awesome awesome-extra git alsa-utils firefox \
-ubuntu-restrcted-extras
-
 # install spotify
 sudo chmod 777 /etc/apt/sources.list
 sudo echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list
 sudo chmod 644 /etc/apt/sources.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59
 sudo apt-get update
-sudo apt-get install -y spotify-client
+
+# install dependencies
+sudo apt-get install -y xorg awesome awesome-extra git alsa-utils firefox \
+ubuntu-restrcted-extras spotify-client
 
 # set desktop background
 # todo: create desktop background with useful info. 
