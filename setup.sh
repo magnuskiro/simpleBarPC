@@ -16,8 +16,7 @@ ubuntu-restricted-extras spotify-client
 # todo: create desktop background with useful info. 
 
 # Configure sound
-# todo get the current user
-sudo adduser <current user> audio
+sudo adduser `whoami` audio
 
 # Configure Awesome and xorg  
 rm ~/.xinitrc
