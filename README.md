@@ -32,3 +32,5 @@ then ad:
 
 the number matches the sound card in /proc/asound/cards
 
+# enable autologin
+http://www.upubuntu.com/2012/03/how-to-enable-auto-login-under-ubuntu.html
